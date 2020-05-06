@@ -1,10 +1,11 @@
 # antiDDoS
-Free simple anti DDoS script in PHP for your site.
-
+Free simple anti DDoS script in PHP for your site.<br>
 Бесплатный простой анти DDoS скрипт на PHP для вашего сайта.
 
-<b>Напоминаю, это анти DDoS ДЛЯ САЙТА!</b>
+<b>Напоминаю, это anti DDoS ДЛЯ САЙТА!</b>
 
+Telegram: https://t.me/FSystem88<br>
+E-Mail: ivan@fsystem88.ru
 # Принцип работы 
 1. IP адрес каждого кто заходит на сайт, отправляет POST/GET запроcы, в принципе делает какие либо манипцлияции с сайтом - записывается в базе данных MySQL (далее БД) и в логах.
 2. После чего удаляются старые записи из БД которые превышают временной интервал, указанный в data.php в значении $second (в секундах), чтобы не засорять БД.
@@ -12,6 +13,9 @@ Free simple anti DDoS script in PHP for your site.
 4. Потом сверяет количество записей в БД за указанное время($second) с лимитом ($limit), который вы указали в файле data.php.
 5. Если лимит($limit) запросов превышен, то этот ip адрес записывает в файл .htaccess с пометкой Deny from {$ip}, что означает полную блокировку к вашему ресурсу с данного ip адреса.
 6. Потом из БД удаляются все записи с заблокированным ip, чтобы не засорять БД.
+
+<b>For examle:</b><br>
+У меня на хостинге разрешена невысокая нагрузка, взял самый дешевый тариф у провайдера. Поэтому я считаю что для одного ip адреса 30-40 запросов в минуту будет более чем предостаточно, в то время как при DDoS атаке стреляют по 5 запросов в секунду.
 
 # How to install
 1. Скачать архив
@@ -26,14 +30,11 @@ Free simple anti DDoS script in PHP for your site.
 <i> • Так же в .htaccess прописал запрет на все ip адреса Tor Project, зачастую ддос идёт через них</i><br>
 <i> • Так же постараюсь придумать решение, чтобы не пришлось каждый раз при создании новой дирректории заморачиваться и пихать туда .htaccess</i>
 
-# Пожалуйста, скиньте рублей 50 на пиво!))
+# Приму в дар деньги на пиво! :))
+<i>в любой валюте))</i><br>
 <b>Донатерная!</b><br>
-http://FSystem88.ru/donate
-<br>
-https://paypal.me/FSystem88
-<br>
-https://qiwi.com/n/FSYSTEM88
-<br>
-https://money.yandex.ru/to/410015440700904
-<br>
-<br>
+<b>1. PAYPAL:</b> https://paypal.me/FSystem88
+<b>2. QIWI:</b> https://qiwi.com/n/FSYSTEM88
+<b>3. YANDEX MONEY:</b> https://money.yandex.ru/to/410015440700904
+<br><br><br>
+<i>Free programmers also need to eat :)</i>
