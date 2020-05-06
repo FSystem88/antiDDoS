@@ -6,7 +6,7 @@ $database = '';
 $user = ''; 
 $password = ''; 
 $link = mysqli_connect($host, $user, $password, $database);
-$table = ''; //name your table ( I have for example "antiddos" )
+$table = 'antiddos'; //name your table ( I have for example "antiddos" )
 
 # rus # Ограничение по количеству запросов в заданное время, после которого ip уйдет в бан
 # eng # Limit on the number of requests at a certain time, after which the ip will be banned
