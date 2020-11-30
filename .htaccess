@@ -2,6 +2,9 @@ php_value auto_prepend_file antiddos.php
 
 Order Allow,Deny
 Allow from all
+
+# Ниже приведены IP адреса Tor браузера
+# Часто современное ПО использует DoS атаки через эти IP
 Deny from 176.10.99.200
 Deny from 185.248.160.65
 Deny from 54.37.16.241
@@ -1381,3 +1384,4 @@ Deny from 139.59.137.156
 Deny from 51.83.254.114
 Deny from 213.136.89.190
 Deny from 104.244.73.193 
+# Конец списка IP адресов Tor Браузера
