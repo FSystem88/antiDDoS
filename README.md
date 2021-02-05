@@ -29,6 +29,10 @@ E-Mail: ivan@fsystem88.ru
 <i> • Позже, как будет время создам полноценный скрипт для автоматической установки</i><br>
 <i> • Так же в .htaccess прописал запрет на все ip адреса Tor Project, зачастую ддос идёт через них</i><br>
 
+# HOW TO INSTALL IN ENGLISH LANG:
+[English instruction](https://github.com/FSystem88/antiDDoS/blob/master/eng.md)
+
+
 
 # Приму в дар деньги на пиво! :))
 <i>в любой валюте))</i><br>
