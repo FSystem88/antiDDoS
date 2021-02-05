@@ -1,7 +1,7 @@
 1. 
 creating a file dir.php and write inside:
 
-  <code>\<?php echo __FILE__; ?></code>
+  <code>\<?php echo \_\_FILE\_\_; ?></code>
 
 
 This is necessary in order to understand the full path to the directory on your hosting/server.
