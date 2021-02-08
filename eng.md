@@ -1,18 +1,18 @@
 1. 
 creating a file dir.php and write inside:
 
-  <code>\<?php echo \_\_FILE\_\_; ?></code>
+  <code>\<?php echo \_\_DIR\_\_; ?></code>
 
 
 This is necessary in order to understand the full path to the directory on your hosting/server.
 when will you go to the na yousite.com/dir.php you will see a line similar to:
 
-  /home/p/p915356w/p915356w.bget.ru/public_html/dir.php   <--- (its my beta site)
+  /home/p/bla-bla-bla/public_html/   <--- (example)
 
 you need to copy everything except "dir.php" and paste it into a file .htaccess in 1 line to make it look like this:
 Example:
 
-	php_value auto_prepend_file /home/p/p915356w/p915356w.bget.ru/public_html/antiddos.php
+	php_value auto_prepend_file /home/p/bla-bla-bla/public_html/antiddos.php
 
 2. 
 Next step in the file in the file data.php you need to write the data:
