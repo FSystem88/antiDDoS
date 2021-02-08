@@ -6,7 +6,7 @@ $nowtime = date("Y-m-d H:i:s");
 $oldtime = date("Y-m-d H:i:s", strtotime(date("Y-m-d H:i:s"))-$second );
 $url = $_SERVER['REQUEST_URI']; 
 $file = $_SERVER["DOCUMENT_ROOT"] . "/.htaccess";
-$f_LOG = $_SERVER["DOCUMENT_ROOT"] . "/logs/logs.log";
+$f_LOG = $_SERVER["DOCUMENT_ROOT"] . "/logs/logs.txt";
 
 $result = mysqli_query($link, "INSERT INTO `antiddos` (`ip`,`time`) VALUES ('$ip','$nowtime')");
 $result = mysqli_query($link, "DELETE FROM `antiddos` WHERE `time` BETWEEN '2020-01-01 00:00:00' and '{$oldtime}'");
