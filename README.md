@@ -4,7 +4,7 @@ Free simple anti DDoS script in PHP for your site.<br>
 
 <b>Напоминаю, это anti DDoS ДЛЯ САЙТА!</b>
 
-Telegram: https://t.me/FSystem88<br>
+Telegram: https://t.me/FSystem88_bot<br>
 E-Mail: ivan@fsystem88.ru
 # Принцип работы 
 1. IP адрес каждого кто заходит на сайт, отправляет POST/GET запроcы, в принципе делает какие либо манипцлияции с сайтом - записывается в базе данных MySQL (далее БД) и в логах.
