@@ -1,50 +1,57 @@
-# antiDDoS
-Free simple anti DDoS script in PHP for your site.<br>
-Бесплатный простой анти DDoS скрипт на PHP для вашего сайта.
+<h1>Antiddos.php</h1>
 
-<b>Напоминаю, это anti DDoS ДЛЯ САЙТА!</b>
+<p><strong>Antiddos.php</strong> — это PHP-скрипт для защиты веб-сайта от DDoS-атак путем блокировки IP-адресов, которые совершают слишком частые запросы.</p>
 
-Telegram: https://t.me/FSystem88_bot<br>
-E-Mail: ivan@fsystem88.ru
-# Принцип работы 
-1. IP адрес каждого кто заходит на сайт, отправляет POST/GET запроcы, в принципе делает какие либо манипцлияции с сайтом - записывается в базе данных MySQL (далее БД) и в логах.
-2. После чего удаляются старые записи из БД которые превышают временной интервал, указанный в data.php в значении $second (в секундах), чтобы не засорять БД.
-3. Дальше он(скрипт) смотрит сколько записей в БД было сделано за то время ($second), которое вы указали в файле data.php.
-4. Потом сверяет количество записей в БД за указанное время($second) с лимитом ($limit), который вы указали в файле data.php.
-5. Если лимит($limit) запросов превышен, то этот ip адрес записывает в файл .htaccess с пометкой Deny from {$ip}, что означает полную блокировку к вашему ресурсу с данного ip адреса.
-6. Потом из БД удаляются все записи с заблокированным ip, чтобы не засорять БД.
+<hr>
 
+<h2>Описание на русском</h2>
 
-# How to install
-1. Скачать архив
-2. Распаковать. В главную дирректорию загрузить файлы: antiddos.php, data.php, dir.php и папку logs.
-3. Обязательно перекуси, нельзя работать на голодный желудок :)
-4. В файле data.php заполнить данные MySQL, а так же установить следующие лимиты:<br> 
-  4.1. $limit - ограничение по количеству запросов в заданное время, после которого ip уйдет в бан (записываться в .htaccess как запрещенный ip адрес)<br> 
-  4.2. $second - ограничение по времени, (за какой промежуток времени в секундах будет проверяться кол-во запросов($limit) )
-5. Зайти на PHPMyAdmin и выполнить запрос на создание таблицы. Код создания таблицы представлен в файле antiddos.sql
-6. Перейдите на сайт yoursite.com/dir.php и скопируйте содержимое - это полный путь до домашней директории вашего сайта.
+<h3>Описание</h3>
+<p>Скрипт <code>antiddos.php</code> предназначен для предотвращения атак на веб-сайт путем ограничения количества запросов с одного IP-адреса в течение заданного времени. 
+Если IP-адрес превышает лимит запросов, он добавляется в блокировку через файл <code>.htaccess</code>.</p>
 
-7. Вставьте скопированный текст (полный путь до домашней директории) в файл htaccess.txt чтобы выглядело у вас вот так:<br>
-<code>php_value auto_prepend_file /home/bla-bla-bla/public_html/antiddos.php</code>
-8. Дальше если на вашем сайте еще не создан файл .htaccess, то можете скопировайть htaccess.txt в домашнюю директорию вашего сайта и переименуйте этот файл в .htaccess. Если такой файл уже у вас существует, то просто в самом начале вставьте содержимое htaccess.txt и Сохраните.
+<h3>Функциональные возможности</h3>
+<ul>
+    <li>Поддержка исключений для IP-адресов (например, <code>localhost</code>, <code>127.0.0.1</code>, и других указанных адресов).</li>
+    <li>Логирование всех запросов с указанием времени, типа запроса и переданных данных.</li>
+    <li>Автоматическая очистка базы данных от устаревших записей.</li>
+</ul>
 
-Проверьте работоспособность сайта, в случае ошибки или сложности - пищите в [Telegram](https://t.me/FSystem88) и за скромную плату (чисто на пиФФко) я вам уделю своё время и помогу с установкой
+<h3>Настройка</h3>
+<ol>
+    <li>Скопируйте <code>antiddos.php</code> в директорию вашего сайта.</li>
+    <li>Добавьте следующую строку в ваш файл <code>.htaccess</code> для автозапуска скрипта при каждом запросе:
+        <pre>php_value auto_prepend_file /path/to/antiddos.php</pre>
+    </li>
+    <li>Настройте базу данных и добавьте таблицу <code>antiddos</code>, как указано в скрипте.</li>
+</ol>
 
-<i> • Позже, как будет время создам полноценный скрипт для автоматической установки</i><br>
-<i> • Так же в ip_tor.txt прописал текст запрета на все ip адреса от Tor Project, зачастую ДДоС идёт через них, поэтому если надо - скопируйте содержимое этого файла и вставьте в .htaccess в конец файла</i><br>
+<h3>Примечание</h3>
+<p>Для корректной работы скрипта необходимо разрешение на использование директивы <code>php_value auto_prepend_file</code> в <code>.htaccess</code>. Проверьте настройки вашего сервера.</p>
 
-# HOW TO INSTALL IN ENGLISH LANG:
+<hr>
 
-[English instruction](https://github.com/FSystem88/antiDDoS/blob/master/eng.md)
+<h2>English Description</h2>
 
+<h3>Description</h3>
+<p><code>antiddos.php</code> is a PHP script designed to protect a website from DDoS attacks by limiting the number of requests from a single IP address within a specified timeframe.
+If an IP address exceeds the request limit, it is blocked through the <code>.htaccess</code> file.</p>
 
+<h3>Features</h3>
+<ul>
+    <li>Supports IP exceptions (e.g., <code>localhost</code>, <code>127.0.0.1</code>, and other specified addresses).</li>
+    <li>Logs each request, including time, request type, and transmitted data.</li>
+    <li>Automatically cleans outdated entries from the database.</li>
+</ul>
 
-# Приму в дар деньги на пиво! :))
-<i>в любой валюте))</i><br>
-<b>Донатерная!</b><br>
-<b>1. PAYPAL:</b> https://paypal.me/FSystem88<br>
-<b>2. QIWI:</b> https://qiwi.com/n/FSYSTEM88<br>
-<b>3. YANDEX MONEY:</b> https://money.yandex.ru/to/410015440700904<br>
-<br><br><br>
-<i>Free programmers also need to eat :)</i>
+<h3>Setup</h3>
+<ol>
+    <li>Copy <code>antiddos.php</code> to your site’s directory.</li>
+    <li>Add the following line to your <code>.htaccess</code> file to run the script automatically for each request:
+        <pre>php_value auto_prepend_file /path/to/antiddos.php</pre>
+    </li>
+    <li>Set up the database and add the <code>antiddos</code> table as indicated in the script.</li>
+</ol>
+
+<h3>Note</h3>
+<p>To work properly, the script requires permission to use the <code>php_value auto_prepend_file</code> directive in <code>.htaccess</code>. Please check your server settings.</p>
